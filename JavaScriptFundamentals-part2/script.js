@@ -276,7 +276,7 @@ console.log(friends.includes('23'));
 if (friends.includes('Ramesh')){
     console.log('You have a friend called Ramesh');
 }
-    */
+    
 const calcTip = function(bill){
     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
@@ -286,6 +286,142 @@ const calcTip = function(bill){
 const bills = [125, 555, 44];
 const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 const totals = [bills[0] + tips[0], bills[1] + tips[1],bills[2] +tips[2]];
-console.log(bills, tips, totals);
+console.log(bills, tips, totals); 
+*/
 
+// Introduction to object
 
+const jonasArray = [
+  "jonas",
+  "Ramakat",
+  2037 - 1991,
+  "teacher",
+  ["john", "Suresh", rahul],
+];
+
+const jonas1 = {
+  firstname: "Ramessh",
+  lastname: "Yadav",
+  age: 2037 - 1991,
+  job: "teacher",
+  friends: ["ram", "rahu", mohit],
+};
+
+//Dot vs Bracket Notation
+const jonas = {
+  firstName: "Ramessh",
+  lastName: "Yadav",
+  age: 2037 - 1991,
+  job: "teacher",
+  friends: ["ram", "rahu", "mohit"],
+};
+console.log(jonas);
+
+console.log(jonas.lastName);
+console.log(jonas["lastName"]);
+
+const namekey = "Name";
+console.log(jonas["first" + namekey]);
+console.log(jonas["last" + namekey]);
+
+const interestedIn = prompt(
+  "what do you want to know about Jonas? choose between firstName,lastname,age,job,and friends"
+);
+console.log(jonas[interestedIn]);
+if (jonas[interestedIn]) {
+  console.log(jonas[interestedIn]);
+} else {
+  console.log(
+    "wrong request! choose between firstName, lastName.age.job,and friends"
+  );
+}
+
+jonas.location = "portugal";
+jonas[twitter] = "@Rameshyadav";
+console.log(jonas);
+
+//Challenge
+//"Jonas has 3 friends,and his best friend is called michael"
+console.log(
+  `$(jonas.firstName)has $ {jonas.friends.length}friends, and his best friend is called $ {jonas.friends[0]}`
+);
+
+// objecd Methos
+
+const Ramesh = {
+  firstName: "Ramesh",
+  lastName: "Yadav",
+  birthyear: 1991,
+  job: "teacher",
+  friends: ["Ram", "roshan", "vinay"],
+  hasDriverslience: true,
+
+  // calcAge: function(birthyear){
+  //     return 2037 - birthyear;
+  // }
+
+  // calcAge: function(){
+  //     console.log(this);
+  //          return 2037 -  this.birthyear;
+  //}
+  calcAge: function () {
+    this.age = 2037 - this.birthyear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()} -year old ${
+      Ramesh.job
+    }, and he has ${this.hasDriverslience ? "a" : "no"} driver's license.`;
+  },
+};
+console.log(Ramesh.calcAge());
+
+console.log(Ramesh.calcAge());
+console.log(Ramesh.calcAge());
+console.log(Ramesh.calcAge());
+
+//console.log(Ramesh['calcAge'](1991))
+
+//Challenge
+// "Ramesh is a 46-year old teacher, and he has a driver's license"
+console.log(Ramesh.getSummary());
+
+// video solution
+
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+const john = {
+  fullName: "john smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+mark.calcBMI();
+john.calcBMI();
+
+console.log(mark.bmi, john.bmi);
+
+//"Johan smith's BMI(28.3) is higher than Mark Miller's(23.9)!"
+
+if (mark.bmi > john.bmi) {
+  console.log(
+    `${mark.fullName} 's BMI(${mark.bmi})is higher than ${john.fullName}'s BMI(${john.bmi})`
+  );
+} else if (john.bmi > mark.bmi) {
+  console.log(
+    `${john.fullName} 's BMI(${john.bmi})is higher than ${mark.fullName}'s BMI(${mark.bmi})`
+  );
+}
