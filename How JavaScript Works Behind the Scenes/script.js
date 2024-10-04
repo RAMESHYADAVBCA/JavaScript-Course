@@ -111,7 +111,7 @@ matilda.calcAge();
 
 const f = jonas.calcAge;
 f(); 
-*/
+
 
 // Regular Functions vs Arrow Functions
 
@@ -162,3 +162,96 @@ var addArrow = (a, b) => {
   return a + b;
 };
 addArrow(2, 5, 8);
+
+// PRIMITIV VS. OBJECTS (PRIMITIVE VS. REFERENCE TYPES)
+
+let age = 30;
+let oldage = 31;
+console.log(age);
+console.log(oldage);
+
+const me = {
+  name: "Ramesh",
+  age: 30,
+};
+const friend = me;
+friend.age = 27;
+console.log("Friend:", friend);
+console.log("Me", me);
+
+// REVIEV: PRIMITIVES, OBJECTS AND JAVASCRIPT ENGINE
+
+/*       PRIMITIVES                       OBJECTS
+
+         
+         1 Number                         Object literal         
+         2 String                          Arrays
+         3 Boolean                         Functions
+         4 Underdefiend                    Many more 
+         5 Null                               
+         6 Symbol
+         7 Biglnt
+
+// PRIMITIVES values EXAMPLE
+
+let age1 = 30;
+let oldage1 = age1;
+age1 = 31;
+console.log(age); //31
+console.log(oldage1); // 30
+
+//Reference values example;
+
+const m = {
+  name: "Ram",
+  age: 30,
+};
+const friends = m;
+friends.age = 27;
+
+console.log("Friend:", friends);
+// { name: 'Jonas', age: 27}
+
+console.log('M:', m);
+// {name: 'Ram', age: 27}
+*/
+
+// PRIMITIVES VS. OBJECTS IN PRACTICE
+
+// Primitive types
+let lastName = "Willians";
+let oldLastName = lastName;
+lastName = "Drives";
+console.log(lastName, oldLastName);
+
+// reference types
+const jessica = {
+  firstName: "Jessica",
+  lastName: "Willians",
+  age: 27,
+};
+const marriedJessica = jessica;
+marriedJessica.lastName = "Davis";
+console.log("Before marriage:", jessica);
+console.log("After marriage:", marriedJessica);
+
+// marriedJessica = {};
+
+//copying objects
+const jessica2 = {
+  firstName: "Jessica",
+  lastName: "Willians",
+  age: 27,
+  family: ["Alice", "Bob"],
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = "Drives";
+console.log("Before marriage:", jessica2);
+console.log("After marriage:", jessicaCopy);
+
+jessicaCopy.family.push("Mary");
+jessicaCopy.family.push("John");
+
+console.log("Before marriage:", jessica2);
+console.log("After marriage:", jessicaCopy);
