@@ -45,7 +45,7 @@ console.log(i, j, k);
 // Default values
 const [p = 1, q = 1, r = 1] = [8];
 console.log(p, q, r);
-*/
+
 
 // DESTRUCTURING OBJECTS
 
@@ -74,7 +74,12 @@ const restaurant = {
     return [this.starteMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = 20.0,
+    address,
+  }) {
     console.log(`order received! ${this.starteMenu[starterIndex]} and ${this.mainMenu[mainIndex]} 
       will be delivered to ${address} at ${time}`);
   },
@@ -86,6 +91,11 @@ restaurant.orderDelivery({
   mainIndex: 2,
   starterIndex: 2,
 });
+restaurant.orderDelivery({
+  address: "Via del Sole, 21",
+  starterIndex: 1,
+});
+
 const { name, openingHours, categories } = restaurant;
 console.log(name, openingHours, categories);
 
@@ -112,3 +122,76 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(open, close);
+*/
+
+// The Spread Operator
+
+const restaurant = {
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Firenze, Italy",
+  categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+  starteMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Capress Salad"],
+  mainMenu: ["Pizaa", "Pasta", "Risotto"],
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 12,
+      close: 22,
+    },
+  },
+  orderPasta: function (ing1, ing2, ing2) {
+    console.log(
+      "Here is your declicious pasta with ${ing1}, ${ing2} and ${ing3}"
+    );
+  },
+};
+const arr1 = [7, 8, 9];
+const arr2 = [1, 2, arr1[0], arr1[1], arr1[2]];
+console.log(arr2);
+
+const newArr = [1, 2, ...arr1];
+console.log(newArr);
+console.log(...newArr);
+console.log(1, 2, 7, 8, 9);
+
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join 2 arrays
+const menu = [...restaurant.starteMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// Iterables: arrays, strings, maps, sets. Not objects
+const str = "Jonas";
+const letters = [...str, "", "s."];
+console.log(letters);
+console.log(...str);
+//console.log('${...str} Ramesh Yadav`);
+
+const ingrediendts = [
+  // prompt("let's make pasta! Ingredient 1?"),
+  // prompt("Ingredient 2?"),
+  // prompt("Ingredient 3"),
+];
+console.log(ingrediendts);
+
+restaurant.orderPasta(ingrediendts[0], ingrediendts[1], ingrediendts[2]);
+restaurant.orderPasta(...ingrediendts);
+
+// Objects
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: "Guiseppe" };
+console.log(newRestaurant);
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = "Ristorante Roma";
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
