@@ -49,7 +49,74 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+// Working with String - Part 2
+const airline = "TAP Air Portugal";
 
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix capitalization in name
+const passenger = "jonAS";
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// Comparing emails
+const email = "hello@jonas.io\n";
+const loginEmail = "Hello@Jonas.Io\n";
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+/*
+///////////////////////////
+// Working with String - Part 1
+const airline = "TAP Air Portugal";
+const plane = "A320";
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log("B737"[0]);
+
+console.log(airline.length);
+console.log("B737".length);
+
+console.log(airline.indexOf("r"));
+console.log(airline.lastIndexOf("r"));
+console.log(airline.indexOf("portugal"));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(" ")));
+console.log(airline.slice(airline.lastIndexOf(" ") + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === "B" || s === "E") console.log("You got the middle seat 😬");
+  else console.log("You got lucky😎");
+};
+
+checkMiddleSeat("11B");
+checkMiddleSeat("23C");
+checkMiddleSeat("3E");
+
+console.log(new String("jonas"));
+console.log(typeof new String("jonas"));
+
+console.log(typeof new String("jonas").slice(1));
+
+
+///////////////////////////
 // SUMMARY: WHICH DATA STRUCTURE TO USE?
 // CHALLENGE#3
 const gameEvents = new Map([
@@ -83,7 +150,6 @@ for (const [min, event] of gameEvents) {
   console.log(`[${half} HALF] ${min}: ${event}`);
 }
 
-/*
 ///////////////////////
 // Maps: iteration
 const question = new Map([
