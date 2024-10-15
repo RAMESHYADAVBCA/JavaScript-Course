@@ -318,4 +318,36 @@ const boardPasssengers = function (n, wait) {
 
 const perGroup = 1000;
 boardPasssengers(180, 3);
+
+
+/////////////////////////
+// CLOSURES
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+booker();
+booker();
+booker();
+
+console.dir(booker);
+
+
+////////////////////////
+// CHALLENGE #2
+(function () {
+  const header = document.querySelector("h1");
+  header.style.color = "red";
+
+  document.querySelector("body").addEventListener("click", function () {
+    header.style.color = "blue";
+  });
+})();
+
 */
