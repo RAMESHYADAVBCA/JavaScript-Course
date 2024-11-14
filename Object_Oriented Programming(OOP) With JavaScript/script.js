@@ -119,3 +119,7 @@ PersonCl.prototype.greet = function () {
   console.log(`Hey ${this.firstName}`);
 };
 jessica.greet();
+
+// 1. Classes are NOT hosisted
+//2. Classes are first-class citizes
+//3. Classes are execute in strict mode
